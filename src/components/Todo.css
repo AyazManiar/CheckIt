@@ -1,0 +1,61 @@
+.task{
+    min-height: 70px;
+    height: auto;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items:baseline;
+    margin: 10px auto;
+    gap: 5px;
+
+    position: relative;
+
+    border-bottom: 2px solid orange;
+}
+
+.task .check{
+    text-align: center;
+}
+.task-text{
+    resize: none;
+
+    flex: 1;
+    min-height: 100%;
+    height: auto;
+    align-items: center;
+    font-size: 18px;
+
+    outline: none;
+    overflow-y: hidden;
+}
+.task .task-btn{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.task-btn button{
+    background-color: rgb(255, 136, 0);
+    color: white;
+    padding: 5px 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    gap: 3px;
+
+    transition: all 0.1s linear;
+}
+.task-btn button:hover{
+    background-color: rgb(218, 122, 14);
+}
+#del{
+    display: inline;
+}
+
+@media only screen and (max-width: 767px) {
+    #del{
+        display: none;
+    }
+}

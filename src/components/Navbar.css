@@ -1,0 +1,45 @@
+nav{
+    background-color: #ff7700;
+    color: white;
+    align-items: center;
+    padding: 10px 20px;
+
+    position: sticky;
+    top: 0;
+    z-index: 99;
+}
+nav .logo{
+    font-weight: 800;
+    font-size: 24px;
+    /* width: 10%; */
+    padding-left: 13px;
+
+
+    flex: 1; /* Takes available space */
+    min-width: 150px; /* Prevents shrinking too much */
+}
+nav .add{
+    /* width: 90%; */
+    display: flex;
+    gap: 20px;
+
+
+    flex: 10; /* Takes more space */
+    min-width: 200px; /* Ensures proper wrapping */
+}
+nav input{ 
+    width: 90%;
+    background-color: white;
+    color: black;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+
+nav button{
+    background-color: white;
+    padding: 5px;
+    border-radius: 50%;
+    font-weight: 600;
+
+    gap: 2px;
+}
