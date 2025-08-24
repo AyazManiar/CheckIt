@@ -3,24 +3,23 @@ import Navbar from "./components/Navbar";
 import Todo from "./components/Todo";
 
 function App() {
-  const [todoList, setTodoList] = useState([]);
-  const [showFinished, setShowFinished] = useState(true)
-
-  // Load data from LocalStorage on first render
-  useEffect(() => {
-    let todoString = localStorage.getItem("todos");
-    if (todoString) {
-      setTodoList(JSON.parse(todoString));
-    }
-  }, []);
+  const [todoList, setTodoList] = useState(()=>{
+    let todoString = localStorage.getItem("todos")
+    return todoString ? JSON.parse(todoString) : []
+  });
+  const [showFinished, setShowFinished] = useState(()=>{
+    let showFinished = localStorage.getItem("showFinished")
+    return showFinished ? JSON.parse(showFinished) : true;
+  })
 
   // Save to LocalStorage whenever todoList is updated
   useEffect(() => {
-    if (todoList.length > 0) {
-      // Prevent overwriting with an empty array on first load
-      localStorage.setItem("todos", JSON.stringify(todoList));
-    }
+    // Prevent overwriting with an empty array on first load
+    localStorage.setItem("todos", JSON.stringify(todoList));
   }, [todoList]);
+  useEffect(()=>{
+    localStorage.setItem("showFinished", JSON.stringify(showFinished))
+  }, [showFinished])
 
   // Function to toggle the completed state
   const toggleComplete = (id) => {
@@ -33,7 +32,7 @@ function App() {
   const deleteTask = (id) => {
     setTodoList((prevItems) => prevItems.filter((todo) => todo.id !== id));
   };
-  // editTask: used from another file
+  // editTask
   const editTask = (e, id, setEditText) => {
     const newText = e.target.value;
     setEditText(newText)
